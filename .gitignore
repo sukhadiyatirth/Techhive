@@ -1,0 +1,19 @@
+# Development files
+.vscode/
+.idea/
+*.log
+
+# Environment variables (if you ever add them)
+.env
+.env.*
+
+# Temporary / Scratch folders
+scratch/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Any uploaded user files that shouldn't be tracked 
+# (Note: For this portfolio we are committing the base product images in assets/images/products)
+# but we can ignore new uploads if needed.
