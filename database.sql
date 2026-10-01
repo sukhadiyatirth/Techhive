@@ -72,7 +72,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'Super Admin','admin@techhive.com','$2y$10$vs3uqs1ZrAg/.EC8BKfzxOqAh5ZVK4xFYmis2BeWWYUB4W1lHv0DK','2026-08-16 08:23:11');
+INSERT INTO `admin` VALUES (1,'Super Admin','admin@techhive.com','$2y$10$xDURgSx/kclckPgjmjMgF.7VcjxAjUZoyhn9Do0oX0t46Es5YO3we','2026-08-16 08:23:11');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,7 +435,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'John Doe','john@example.com','9876543210','$2y$10$Xec8t/s49itOJsVcJ6RFqu4KmmOvbLhLsQ4UpkuFQl0P.68vgswe2','inactive','2026-08-16 08:23:11'),(2,'Jane Smith','jane@example.com','8765432109','$2y$10$Xec8t/s49itOJsVcJ6RFqu4KmmOvbLhLsQ4UpkuFQl0P.68vgswe2','active','2026-08-16 08:23:11'),(3,'Sukhadiya Tirth chiragkumar','sukhadiyatirth771@gmail.com','07043617880','$2y$10$lVKw8/SJ5sk0EZK0dd4mVe/zLZAQV9SQXTzdJQFvVcCBKgnSchKUq','inactive','2026-08-16 10:08:34');
+INSERT INTO `users` VALUES (1,'John Doe','john@example.com','9876543210','$2y$10$z0OrKYQa/ABxvtJGZUfJI.rWhBy68GE9Dmace7dC3kfFivIQ9Z.ee','active','2026-08-16 08:23:11'),(2,'Jane Smith','jane@example.com','8765432109','$2y$10$z0OrKYQa/ABxvtJGZUfJI.rWhBy68GE9Dmace7dC3kfFivIQ9Z.ee','active','2026-08-16 08:23:11'),(3,'Sukhadiya Tirth chiragkumar','sukhadiyatirth771@gmail.com','07043617880','$2y$10$lVKw8/SJ5sk0EZK0dd4mVe/zLZAQV9SQXTzdJQFvVcCBKgnSchKUq','active','2026-08-16 10:08:34');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
