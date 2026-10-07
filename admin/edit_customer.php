@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = $_POST['phone'] ?? '';
     $status = $_POST['status'] ?? 'active';
 
-    if (empty($full_name) || empty($email)) {
-        $error = "Name and email are required.";
+    if (empty($full_name) || empty($email) || empty($phone)) {
+        $error = "Name, email, and 10-digit phone number are required.";
+    } elseif (!preg_match('/^[0-9]{10}$/', $phone)) {
+        $error = "Phone number must be exactly 10 digits.";
     } else {
         try {
             // Check if email already exists for another user
@@ -83,18 +85,18 @@ if (!$customer) {
             <form action="edit_customer.php?id=<?= $id ?>" method="POST">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Full Name</label>
+                        <label>Full Name *</label>
                         <input type="text" name="full_name" value="<?= htmlspecialchars($customer['full_name']) ?>" required>
                     </div>
                     <div class="form-group">
-                        <label>Email Address</label>
+                        <label>Email Address *</label>
                         <input type="email" name="email" value="<?= htmlspecialchars($customer['email']) ?>" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" name="phone" value="<?= htmlspecialchars($customer['phone'] ?? '') ?>">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" required pattern="[0-9]{10}" maxlength="10" minlength="10" placeholder="10-digit phone number" title="Please enter a valid 10-digit phone number" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" value="<?= htmlspecialchars($customer['phone'] ?? '') ?>">
                     </div>
                     <div class="form-group">
                         <label>Status</label>

@@ -17,8 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
     
-    if (empty($name) || empty($email) || empty($password)) {
+    if (empty($name) || empty($email) || empty($phone) || empty($password)) {
         $error = 'Please fill in all required fields.';
+    } elseif (!preg_match('/^[0-9]{10}$/', $phone)) {
+        $error = 'Phone number must be exactly 10 digits.';
     } elseif ($password !== $confirm_password) {
         $error = 'Passwords do not match.';
     } elseif (strlen($password) < 6) {
@@ -71,8 +73,8 @@ include 'includes/header.php';
             </div>
             
             <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control" value="<?= htmlspecialchars($_POST['phone'] ?? '') ?>">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required pattern="[0-9]{10}" maxlength="10" minlength="10" placeholder="10-digit phone number" title="Please enter a valid 10-digit phone number" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" value="<?= htmlspecialchars($_POST['phone'] ?? '') ?>">
             </div>
             
             <div class="form-group">
